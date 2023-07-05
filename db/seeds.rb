@@ -22,12 +22,12 @@ clients = Client.all
 movies = Movie.all
 
 clients.each do |client|
-  # Selecciona un número aleatorio de películas para asociar con el cliente
+  
   num_movies = rand(1..5)
 
-  # Obtiene una muestra aleatoria de películas sin repetición
+  
   selected_movies = movies.sample(num_movies)
 
-  # Asocia las películas seleccionadas al cliente
+  
   client.movies << selected_movies
 end
