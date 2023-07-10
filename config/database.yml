@@ -74,7 +74,7 @@
 # URL environment variable explicitly:
 #
   production:
-   database: blockbuster
+  database: blockbuster
   username: rentdb
     <<: *default
     url: <%= ENV["DATABASE_URL"] %>
