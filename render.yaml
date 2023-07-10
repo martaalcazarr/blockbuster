@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: blockbuster_rent
+    runtime: ruby
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: blockbuster
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
+      - key: DEVELOPMENT_DATABASE_PASSWORD
+        fromDatabase:
+          name: mysite
+          property: env.DEVELOPMENT_DATABASE_PASSWORD
