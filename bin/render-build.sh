@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 # exit on error
-set -e
+set -o errexit
 
-/home/vagrant/.rbenv/shims/bundle install
-
-/home/vagrant/.rbenv/shims/bundle exec rake assets:clean
-/home/vagrant/.rbenv/shims/bundle exec rake db:migrate
-/home/vagrant/.rbenv/shims/bundle exec rake db:seed
+bundle install
+bundle exec rake assets:precompile
+bundle exec rake assets:clean
+bundle exec rake db:migrate
